@@ -1,0 +1,222 @@
+/* ------------------------------------------------------------------
+   Design tokens — change these few values to re-theme the whole site.
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #fafafa;          /* off-white background */
+  --text: #1a1a1a;        /* near-black body text */
+  --muted: #6b6b6b;       /* secondary text (tagline, tags, dates) */
+  --hairline: #e4e4e4;    /* thin divider lines */
+  --accent: #2563eb;      /* the ONE accent color — used on link hover only */
+
+  --max-width: 680px;     /* readable line length */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+/* ------------------------------------------------------------------
+   Reset / base
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* anchor links glide instead of jumping */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Centered, width-constrained column with generous breathing room */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 7rem 1.5rem 5rem;
+}
+
+/* ------------------------------------------------------------------
+   Typography & hierarchy (driven by weight/size, not color)
+   ------------------------------------------------------------------ */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* ------------------------------------------------------------------
+   Links — quiet by default, subtle accent on hover/focus
+   ------------------------------------------------------------------ */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Visible keyboard-focus outline for accessibility */
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------
+   Sections — separated by space and a single hairline divider
+   ------------------------------------------------------------------ */
+.section {
+  padding-top: 3.5rem;
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--hairline);
+}
+
+/* ------------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------------ */
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.75rem;
+}
+
+.tagline {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.intro {
+  max-width: 40ch; /* keep the intro line a touch shorter than body */
+}
+
+/* Spacing between the two hero links */
+.hero-links a {
+  margin-right: 1.5rem;
+}
+
+/* ------------------------------------------------------------------
+   About
+   ------------------------------------------------------------------ */
+.tech-line {
+  color: var(--muted);
+  margin-top: 1.5rem;
+}
+
+.tech-label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------
+   Projects
+   ------------------------------------------------------------------ */
+.project-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.project p {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+/* Tech tags: plain inline text, no boxes or borders */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.project-links a {
+  margin-right: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------------------
+   CV highlights
+   ------------------------------------------------------------------ */
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlights li {
+  padding: 0.4rem 0;
+}
+
+/* ------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------ */
+.footer-links a {
+  margin-right: 1.5rem;
+}
+
+.colophon {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* ------------------------------------------------------------------
+   Responsive: tighten spacing on small screens.
+   The single-column layout already stacks naturally — nothing to change there.
+   ------------------------------------------------------------------ */
+@media (max-width: 600px) {
+  .page {
+    padding: 4rem 1.25rem 3.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  a {
+    transition: none;
+  }
+}
